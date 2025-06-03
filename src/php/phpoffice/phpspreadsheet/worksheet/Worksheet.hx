@@ -363,19 +363,7 @@ extern class Worksheet {
 	 *
 	 * @return Worksheet
 	 */
-	public function setCellValueExplicit(coordinate:String, value:Any, dataType:String):Worksheet;
-
-	/**
-	 * Set a cell value by using numeric cell coordinates.
-	 *
-	 * @param int $columnIndex Numeric column coordinate of the cell
-	 * @param int $row Numeric row coordinate of the cell
-	 * @param mixed $value Value of the cell
-	 * @param string $dataType Explicit data type, see DataType::TYPE_*
-	 *
-	 * @return Worksheet
-	 */
-	public function setCellValueExplicitByColumnAndRow(columnIndex:Int, row:Int, value:Any, dataType:String):Worksheet;
+	public function setCellValueExplicit(coordinate:EitherType<String, NativeArray>, value:Any, dataType:String):Worksheet;
 
 	/**
 	 * Get cell at a specific coordinate.
@@ -388,19 +376,7 @@ extern class Worksheet {
 	 *
 	 * @return null|Cell Cell that was found/created or null
 	 */
-	public function getCell(coordinate:String, createIfNotExists:Bool = true):Null<Cell>;
-
-	/**
-	 * Get cell at a specific coordinate by using numeric cell coordinates.
-	 *
-	 * @param int $columnIndex Numeric column coordinate of the cell
-	 * @param int $row Numeric row coordinate of the cell
-	 * @param bool $createIfNotExists Flag indicating whether a new cell should be created if it doesn't
-	 *                                       already exist, or a null should be returned instead
-	 *
-	 * @return null|Cell Cell that was found/created or null
-	 */
-	public function getCellByColumnAndRow(columnIndex:Int, row:Int, createIfNotExists:Bool = true):Null<Cell>;
+	public function getCell(coordinate:EitherType<String, NativeArray>, createIfNotExists:Bool = true):Null<Cell>;
 
 	/**
 	 * Create a new cell at the specified coordinate.
