@@ -39,7 +39,7 @@ extern class ColumnDimension extends Dimension {
 	 *
 	 * @return ColumnDimension
 	 */
-	public function setWidth(value:Float):ColumnDimension;
+	public function setWidth(value:Float, ?unitOfMeasure:String = null):ColumnDimension;
 
 	/**
 	 * Get Auto Size.
