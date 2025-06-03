@@ -1,6 +1,5 @@
 package php.phpoffice.phpspreadsheet.worksheet;
 
-import haxe.ds.Either;
 import php.phpoffice.phpspreadsheet.Spreadsheet;
 import php.phpoffice.phpspreadsheet.cell.Cell;
 import php.phpoffice.phpspreadsheet.style.Style;
@@ -353,7 +352,7 @@ extern class Worksheet {
 	 *
 	 * @return Worksheet
 	 */
-	public function setCellValue(coordinate:Either<String, NativeArray>, value:Any):Worksheet;
+	public function setCellValue(coordinate:EitherType<String, NativeArray>, value:Any):Worksheet;
 
 	/**
 	 * Set a cell value.
@@ -478,7 +477,7 @@ extern class Worksheet {
 	 *
 	 * @return Style
 	 */
-	public function getStyle(cellCoordinate:Either<String, NativeArray>):Style;
+	public function getStyle(cellCoordinate:EitherType<String, NativeArray>):Style;
 
 	/**
 	 * Get conditional styles for a cell.
@@ -591,7 +590,7 @@ extern class Worksheet {
 	 *
 	 * @return Worksheet
 	 */
-	public function mergeCells(range:Either<String, NativeArray>):Worksheet;
+	public function mergeCells(range:EitherType<String, NativeArray>):Worksheet;
 
 	/**
 	 * Remove merge on a cell range.
