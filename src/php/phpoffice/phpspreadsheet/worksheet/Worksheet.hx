@@ -1,5 +1,6 @@
 package php.phpoffice.phpspreadsheet.worksheet;
 
+import haxe.ds.Either;
 import php.phpoffice.phpspreadsheet.Spreadsheet;
 import php.phpoffice.phpspreadsheet.cell.Cell;
 import php.phpoffice.phpspreadsheet.style.Style;
@@ -352,18 +353,7 @@ extern class Worksheet {
 	 *
 	 * @return Worksheet
 	 */
-	public function setCellValue(coordinate:String, value:Any):Worksheet;
-
-	/**
-	 * Set a cell value by using numeric cell coordinates.
-	 *
-	 * @param int $columnIndex Numeric column coordinate of the cell
-	 * @param int $row Numeric row coordinate of the cell
-	 * @param mixed $value Value of the cell
-	 *
-	 * @return Worksheet
-	 */
-	public function setCellValueByColumnAndRow(columnIndex:Int, row:Int, value:Any):Worksheet;
+	public function setCellValue(coordinate:Either<String, NativeArray>, value:Any):Worksheet;
 
 	/**
 	 * Set a cell value.
@@ -488,7 +478,7 @@ extern class Worksheet {
 	 *
 	 * @return Style
 	 */
-	public function getStyle(cellCoordinate:String):Style;
+	public function getStyle(cellCoordinate:Either<String, NativeArray>):Style;
 
 	/**
 	 * Get conditional styles for a cell.
@@ -533,18 +523,6 @@ extern class Worksheet {
 	 * @return Worksheet
 	 */
 	public function setConditionalStyles(coordinate:String, value:NativeArray):Worksheet;
-
-	/**
-	 * Get style for cell by using numeric cell coordinates.
-	 *
-	 * @param int $columnIndex1 Numeric column coordinate of the cell
-	 * @param int $row1 Numeric row coordinate of the cell
-	 * @param null|int $columnIndex2 Numeric column coordinate of the range cell
-	 * @param null|int $row2 Numeric row coordinate of the range cell
-	 *
-	 * @return Style
-	 */
-	public function getStyleByColumnAndRow(columnIndex1:Int, row1:Int, columnIndex2:Null<Int> = null, row2:Null<Int> = null):Style;
 
 	/**
 	 * Duplicate cell style to a range of cells.
@@ -613,21 +591,7 @@ extern class Worksheet {
 	 *
 	 * @return Worksheet
 	 */
-	public function mergeCells(range:String):Worksheet;
-
-	/**
-	 * Set merge on a cell range by using numeric cell coordinates.
-	 *
-	 * @param int $columnIndex1 Numeric column coordinate of the first cell
-	 * @param int $row1 Numeric row coordinate of the first cell
-	 * @param int $columnIndex2 Numeric column coordinate of the last cell
-	 * @param int $row2 Numeric row coordinate of the last cell
-	 *
-	 * @throws Exception
-	 *
-	 * @return Worksheet
-	 */
-	public function mergeCellsByColumnAndRow(columnIndex1:Int, row1:Int, columnIndex2:Int, row2:Int):Worksheet;
+	public function mergeCells(range:Either<String, NativeArray>):Worksheet;
 
 	/**
 	 * Remove merge on a cell range.
